@@ -69,7 +69,7 @@ function App() {
   }
 
   const fetchText = (lang) => {
-    const url = `https://aikey.herokuapp.com/api/${lang}`
+    const url = `https://aikeys.herokuapp.com/api/${lang}`
     axios.get(url).then(response => {
       console.log("SUCCESS", response)
       addText(response)
