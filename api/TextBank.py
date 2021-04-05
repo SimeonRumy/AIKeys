@@ -1,5 +1,7 @@
 from api.TextGenerator import TextGenerator
 
+language = "python"
+
 class TextBank: 
 
     models = {
@@ -19,6 +21,7 @@ class TextBank:
             print("generating")
             return self.text_generator.generate_more_text(lang)
     
-    def generate_more_text(self, lang):
+    def generate_more_text(self, lang=language):
+        language = lang
         print("pre fetching text")
-        self.models[lang].append(self.text_generator.generate_more_text(lang))
+        self.models[lang].append(self.text_generator.generate_more_text(language))
