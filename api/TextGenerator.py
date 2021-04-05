@@ -18,7 +18,7 @@ class TextGenerator:
     def generate_more_text(self, lang):
         print("get more text")
         self.current_model = self.model_manager.models[lang]
-        return self.complete_text(n_chars=100)
+        return self.complete_text(n_chars=50)
 
     def preprocess(self, texts):
         X = np.array(self.current_model.tokenizer.texts_to_sequences(texts)) - 1
@@ -31,7 +31,7 @@ class TextGenerator:
         char_id = tf.random.categorical(rescaled_logits, num_samples=1) + 1
         return self.current_model.tokenizer.sequences_to_texts(char_id.numpy())[0]
 
-    def complete_text(self, n_chars=150, temperature=1):
+    def complete_text(self, n_chars=50, temperature=1):
         text = random.choice(string.ascii_letters)
         for i in range(n_chars):
             text = f'{text}{self.next_char(text, temperature)}'

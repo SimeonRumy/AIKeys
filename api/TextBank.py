@@ -5,8 +5,8 @@ language = "python"
 class TextBank: 
 
     models = {
-       "python": [],
-       "swift": [], 
+       "python": ["Start typing......"],
+       "swift": ["Start typing......"], 
     }
 
     def __init__ (self):
