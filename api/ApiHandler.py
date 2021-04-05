@@ -12,6 +12,11 @@ class ApiHandler(Resource):
 
 
   def get(self, lang):
+    @after_this_request
+    def after_request(response):
+        text_bank.generate_more()
+        print("after_request")
+        return response
     print('lang requested from api')
     print(lang)
     text = text_bank.get_text(lang)
@@ -19,11 +24,7 @@ class ApiHandler(Resource):
       'resultStatus': 'SUCCESS',
       'message': text
       }
-    @after_this_request
-    def after_request(response):
-        text_bank.generate_more()
-        print("after_request")
-        return response
+    
 
     
 
