@@ -15,7 +15,7 @@ class TextGenerator:
         print("init text generatot")
         self.model_manager = ModelManager()
 
-    def generate_more_text(self, lang):
+    def generate_more_text(self, lang, n_chars=50):
         print("get more text")
         self.current_model = self.model_manager.models[lang]
         return self.complete_text(n_chars=50)

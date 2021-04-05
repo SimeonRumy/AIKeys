@@ -17,15 +17,18 @@ class ApiHandler(Resource):
         text_bank.generate_more()
         print("after_request")
         return response
-    print('lang requested from api')
-    print(lang)
-    text = text_bank.get_text(lang)
+    if lang == "async":
+      text_bank.generate_more_for_all(self)
+      text = ""
+    else:
+      print('lang requested from api')
+      print(lang)
+      text = text_bank.get_text(lang)
     return {
       'resultStatus': 'SUCCESS',
       'message': text
       }
     
-
     
 
   def post(self, lang):

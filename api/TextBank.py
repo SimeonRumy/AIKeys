@@ -6,7 +6,7 @@ class TextBank:
 
     models = {
        "python": ["Start typing......"],
-       "swift": ["Start typing......"], 
+       "swift": ["Start typing....."], 
     }
 
     def __init__ (self):
@@ -25,3 +25,7 @@ class TextBank:
         language = lang
         print("pre fetching text")
         self.models[lang].append(self.text_generator.generate_more_text(language))
+
+    def generate_more_for_all(self):
+        for key in self.models.keys():
+            self.models[key].append(self.text_generator.generate_more_text(key, n_chars=250))
