@@ -9,11 +9,18 @@ class TextBank:
 
     def __init__ (self):
         self.text_generator = TextGenerator()
-        # for key in self.models.keys(): 
-        #     self.models[key].append(self.text_generator.generate_more_text(key))
+        for i in range(10):
+            print(f"Iteration {1}")
+            for key in self.models.keys(): 
+                self.models[key].append(self.text_generator.generate_more_text(key))
 
     def get_text(self, lang):
-        # To be replaced with async call
         print(lang)
-        self.models[lang].append(self.text_generator.generate_more_text(lang))
-        return self.models[lang].pop()
+        if len(models[lang]) > 0:
+            return self.models[lang].pop()
+        else:
+            return self.text_generator.generate_more_text(lang)
+    
+    def generate_more_text(self):
+        for key in self.models.keys(): 
+            self.models[key].append(self.text_generator.generate_more_text(key))
