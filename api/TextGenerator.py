@@ -32,10 +32,9 @@ class TextGenerator:
         return self.current_model.tokenizer.sequences_to_texts(char_id.numpy())[0]
 
     def complete_text(self, n_chars=150, temperature=1):
-        input_text = random.choice(string.ascii_letters)
-        text = ""
+        text = random.choice(string.ascii_letters)
         for i in range(n_chars):
-            text += self.next_char(input_text if len(text) == 0 else text, temperature)
+            text = f'{text}{self.next_char(text, temperature)}'
         return text
 
     
