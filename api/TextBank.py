@@ -21,7 +21,7 @@ class TextBank:
             print("generating")
             return self.text_generator.generate_more_text(lang)
     
-    def generate_more_text(self, lang=language):
+    def generate_more(self, lang=language):
         language = lang
         print("pre fetching text")
         self.models[lang].append(self.text_generator.generate_more_text(language))
