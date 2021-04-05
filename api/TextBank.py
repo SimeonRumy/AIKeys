@@ -9,10 +9,10 @@ class TextBank:
 
     def __init__ (self):
         self.text_generator = TextGenerator()
-        for i in range(1):
-            print(f"Iteration {i}")
-            for key in self.models.keys(): 
-                self.models[key].append(self.text_generator.generate_more_text(key))
+        # for i in range(1):
+        #     print(f"Iteration {i}")
+        #     for key in self.models.keys(): 
+        #         self.models[key].append(self.text_generator.generate_more_text(key))
 
     def get_text(self, lang):
         print(lang)
