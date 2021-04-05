@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import Letter from "../Letter/Letter.js"
 import './LetterGrid.css';
 

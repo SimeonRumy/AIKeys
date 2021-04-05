@@ -1,4 +1,5 @@
 from flask_restful import Api, Resource, reqparse
+from flask import after_this_request
 import os
 from api.TextBank import TextBank
 
@@ -11,14 +12,20 @@ class ApiHandler(Resource):
 
 
   def get(self, lang):
+    @after_this_request
+    def after_request(response):
+        text_bank.generate_more_text(lang)
+        print("after_request")
+        return response
     print('lang requested from api')
     print(lang)
     text = text_bank.get_text(lang)
-
     return {
       'resultStatus': 'SUCCESS',
       'message': text
       }
+
+    
 
   def post(self, lang):
     print(self)

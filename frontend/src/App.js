@@ -42,6 +42,8 @@ function App() {
       }
       if (keyIndex === 1) {
         setTimer(0)
+        setKeyIndex(0)
+        setItems([])
       }
 
       if (key === ""){

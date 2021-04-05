@@ -9,18 +9,16 @@ class TextBank:
 
     def __init__ (self):
         self.text_generator = TextGenerator()
-        # for i in range(1):
-        #     print(f"Iteration {i}")
-        #     for key in self.models.keys(): 
-        #         self.models[key].append(self.text_generator.generate_more_text(key))
 
     def get_text(self, lang):
         print(lang)
-        if len(models[lang]) > 0:
+        if len(self.models[lang]) > 0:
+            print("poping")
             return self.models[lang].pop()
         else:
+            print("generating")
             return self.text_generator.generate_more_text(lang)
     
-    def generate_more_text(self):
-        for key in self.models.keys(): 
-            self.models[key].append(self.text_generator.generate_more_text(key))
+    def generate_more_text(self, lang):
+        print("pre fetching text")
+        self.models[key].append(self.text_generator.generate_more_text(lang))
