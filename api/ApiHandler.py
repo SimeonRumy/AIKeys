@@ -13,8 +13,8 @@ class ApiHandler(Resource):
 
   def get(self, lang):
     @after_this_request
-    def after_request(response, lang):
-        text_bank.generate_more_text(lang)
+    def after_request(response):
+        text_bank.generate_more_text(lang=response.url)
         print("after_request")
         return response
     print('lang requested from api')
