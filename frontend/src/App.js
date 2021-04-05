@@ -40,11 +40,6 @@ function App() {
         fetchText(lang)
         resetState()
       }
-      if (keyIndex === 1) {
-        setTimer(0)
-        setKeyIndex(0)
-        setItems([])
-      }
 
       if (key === ""){
         key = " "
@@ -60,6 +55,14 @@ function App() {
       window.removeEventListener('keydown', downHandler);
     };
   }, [keys, keyIndex, resetState, lang, texts, setTexts]); 
+
+  // useEffect(()=>{ 
+  //   if (keyIndex >= 0) {
+  //     setTimer(0)
+  //     setKeyIndex(0)
+  //     setItems([])
+  //   }
+  // }, [texts[0]]); 
 
   const addItem = (key) => {
     setItems(items => [...items, key]);
