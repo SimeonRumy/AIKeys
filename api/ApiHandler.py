@@ -18,7 +18,6 @@ class ApiHandler(Resource):
         print("after_request")
         return response
     if lang == "async":
-      text_bank.generate_more_for_all(self)
       text = ""
     else:
       print('lang requested from api')
