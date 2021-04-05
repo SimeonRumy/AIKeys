@@ -14,17 +14,16 @@ class TextBank:
 
     def get_text(self, lang):
         print(lang)
-        if len(self.models[lang]) > 0:
-            print("poping")
+        if len(self.models[lang]) > 10:
+            return self.models[lang].pop() + self.models[lang].pop()
+        elif len(self.models[lang]) > 0:
             return self.models[lang].pop()
         else:
-            print("generating")
             return self.text_generator.generate_more_text(lang)
     
     def generate_more(self, lang=language):
         language = lang
-        print("pre fetching text")
-        self.models[lang].append(self.text_generator.generate_more_text(language))
+        self.models[lang].append(self.text_generator.generate_more_text(language, n_chars=100))
 
     def generate_more_for_all(self):
         for key in self.models.keys():
