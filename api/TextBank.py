@@ -23,7 +23,7 @@ class TextBank:
     
     def generate_more(self, lang=language):
         language = lang
-        self.models[lang].append(self.text_generator.generate_more_text(language, n_chars=100))
+        self.models[lang].append(self.text_generator.generate_more_text(language, n_chars=50))
 
     def generate_more_for_all(self):
         for key in self.models.keys():
